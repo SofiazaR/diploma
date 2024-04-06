@@ -6,7 +6,7 @@ import { Context } from '../../context/Content'
 const Sidebar = () => {
 
     const [extended, setExtended] = useState(false)
-    const {onSent, prevPrompts,setRecentPrompt,newChat} = useContext(Context)
+    const { onSent, prevPrompts, setRecentPrompt, newChat, input, setInput } = useContext(Context)
 
     const loadPromt = async (prompt) => {
         setRecentPrompt(prompt)
@@ -16,38 +16,18 @@ const Sidebar = () => {
     return (
         <div className='sidebar'>
             <div className="top">
-            <img onClick={()=>setExtended(prev=>!prev)} className='menu' src={assets.menu_icon} alt="" />
+                <img onClick={() => setExtended(prev => !prev)} className='menu' src={assets.menu_icon} alt="" />
                 <div className="bottom-item recent-entry">
-                    {extended?<p>Help</p>:null}
+                    {extended ?  <div className="input-box">
+                    <input onChange={(e) => setInput(e.target.value)} value={input} type='text' placeholder='Вставьте интервью тут' />
+                </div> : null}
                 </div>
-                <div className="bottom-item recent-entry">
-                    {extended?<p>Activity</p>:null}
-                </div>
-                <div className="bottom-item recent-entry">
-                    {extended?<p>Settings</p>:null}
-                </div>
+
                 
-                <div onClick={()=>newChat()} className="new-chat">
-                    <img src={assets.plus_icon} alt="" />
-                    {extended ? <p>New Chat</p> : null}
-                </div>
-                {extended
-                    ? <div className="recent">
-                        <p className="recent-title">Recent</p>
-                        {prevPrompts.map((item,index)=>{
-                            return(
-                                <div onClick={()=>loadPromt(item)} className="recent-entry">
-                                    <img src={assets.message_icon} alt="" />
-                                    <p>{item.slice(0,18)}...</p>
-                                </div>
-                            )
-                        })}
-                        
-                    </div>
-                    :null
-                }
+
 
             </div>
+
         </div>
     )
 }

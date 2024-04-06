@@ -28,7 +28,7 @@
 .main .greet{
     margin: 50px 0px;
     font-size: 56px;
-    color: #c4c7c5;
+    color: #49557e;
     font-weight: 500;
     padding: 20px;
 }
@@ -48,7 +48,7 @@
 }
 
 .main .card{
-    height: 200px;
+    height: 100px;
     padding: 15px;
     background-color: #f0f4f9;
     border-radius: 10px;
@@ -180,6 +180,7 @@
     font-weight: 300;
     line-height: 1.8;
 }
+
 
 @media (max-width:600px) {
     .main-bottom input{

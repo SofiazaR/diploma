@@ -14,7 +14,7 @@ const ContextProvider = (props) => {
 
     const delayPara = (index,nextWord) =>{
         setTimeout(function (){
-            setResultData(prev =>prev=>prev+nextWord);
+            setResultData(prev=>prev+nextWord);
         },75*index)
     }
 
@@ -22,6 +22,7 @@ const ContextProvider = (props) => {
         setLoading(false)
         setShowResult(false)
     }
+
 
     const onSent = async (prompt) => {
 
