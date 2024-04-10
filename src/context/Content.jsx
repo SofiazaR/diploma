@@ -48,6 +48,7 @@ const ContextProvider = (props) => {
             else{
                 newResponse += "<b>"+responceArray[i]+"</b>";
             }
+            
         }
         let newResponse2 = newResponse.split("*").join("</br>")
         let newResponseArray = newResponse2.split(" ");
@@ -55,7 +56,6 @@ const ContextProvider = (props) => {
             const nextWord = newResponseArray[i];
             delayPara(i,nextWord+" ")
         }
-
         setLoading(false)
         setInput("")
     }
